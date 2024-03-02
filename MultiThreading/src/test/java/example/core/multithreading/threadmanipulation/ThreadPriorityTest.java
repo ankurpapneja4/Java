@@ -2,15 +2,14 @@ package example.core.multithreading.threadmanipulation;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import sun.misc.Signal;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import static example.core.multithreading.threadmanipulation.ThreadUtils.sleep;
 
 public class ThreadPriorityTest {
 
@@ -44,11 +43,11 @@ public class ThreadPriorityTest {
 
                 }, "HighPriority"+i ));
 
-        // Set Priority ( Between 0-MIN And 10-MAX )
+        // When: Set Priority ( Between 0-MIN And 10-MAX )
         highPriorityThreads.forEach( t -> t.setPriority( Thread.MAX_PRIORITY ));
 
 
-        //Start Threads
+        // Start Threads
         lowPriorityThreads.stream().forEach( Thread::start );
         highPriorityThreads.stream().forEach( Thread::start );
 
@@ -59,6 +58,7 @@ public class ThreadPriorityTest {
         // Get Number Of Low Priority Threads Completed, During Time Taken By High Priority Threads To Complete
         int numberOfLowPrioryThreadsCompleted = counter.get();
 
+        // Then
         Assertions.assertEquals( 0, numberOfLowPrioryThreadsCompleted);
     }
 

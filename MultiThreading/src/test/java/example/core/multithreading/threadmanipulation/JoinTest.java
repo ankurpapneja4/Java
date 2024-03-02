@@ -41,11 +41,11 @@ public class JoinTest {
         t1.start();
         t2.start();
 
-        // Join : wait for thread t1 and t2 to complete
+        // When: Join ( wait for thread t1 and t2 to complete)
         t1.join();
         t2.join();
 
-        // Values should be incremented by Threads.
+        // Then: Values should be incremented by Threads.
         assertEquals( 1, x.get() );
         assertEquals( 1, y.get() );
 
