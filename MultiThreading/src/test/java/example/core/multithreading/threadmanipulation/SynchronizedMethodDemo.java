@@ -44,7 +44,7 @@ public class SynchronizedMethodDemo {
     }
 
 
-    public static class NonSynchronized{
+    private static class NonSynchronized{
 
         private int counter = 0;
 
@@ -57,7 +57,7 @@ public class SynchronizedMethodDemo {
         public int getCounter() { return counter;}
     }
 
-    public static class Synchronized{
+    private static class Synchronized{
 
         private int counter = 0;
 

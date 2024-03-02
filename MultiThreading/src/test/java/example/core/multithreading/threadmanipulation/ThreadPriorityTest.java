@@ -42,7 +42,7 @@ public class ThreadPriorityTest {
         // Get Number Of Low Priority Threads Completed, During Time Taken By High Priority Threads To Complete
         int numberOfLowPrioryThreadsCompleted = counter.get();
 
-        // Then
+        // Then: No Low Priority Thread Has Been Executed, Before High Priority Threads.
         Assertions.assertEquals( 0, numberOfLowPrioryThreadsCompleted);
     }
 
