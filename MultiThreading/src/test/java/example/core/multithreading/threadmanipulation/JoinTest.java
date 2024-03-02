@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static example.core.multithreading.threadmanipulation.ThreadUtils.sleep;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class JoinTest {
@@ -50,8 +51,4 @@ public class JoinTest {
 
     }
 
-
-    private void sleep(long millis){
-        try { Thread.sleep(millis); } catch (InterruptedException e) {  throw new RuntimeException(e); }
-    }
 }
