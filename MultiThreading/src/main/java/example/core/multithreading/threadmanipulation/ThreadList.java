@@ -9,11 +9,11 @@ public class ThreadList {
 
     public ThreadList(Runnable runnable, String name){
 
-        final int CPU_CORES = Runtime.getRuntime().availableProcessors();
+        int listSize = defaultSize();
 
-        this.threads = new ArrayList<>( CPU_CORES );
+        this.threads = new ArrayList<>( listSize );
 
-        for(int i = 0; i < CPU_CORES; i++)
+        for(int i = 0; i < listSize; i++)
             threads.add( new Thread( runnable , name+i));
 
     }
@@ -36,6 +36,16 @@ public class ThreadList {
             try { t.join(); } catch (InterruptedException e) { e.printStackTrace(); }
         });
         return this;
+    }
+
+    public ThreadList priority(int newPriority) {
+        threads.forEach(t -> t.setPriority( newPriority ));
+        return this;
+    }
+
+    public static int defaultSize(){
+        int CPU_CORES = Runtime.getRuntime().availableProcessors();;
+        return CPU_CORES;
     }
 
 }

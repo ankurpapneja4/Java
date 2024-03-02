@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeoutException;
@@ -16,40 +14,26 @@ public class ThreadPriorityTest {
     @Test
     void priorityTest() throws InterruptedException, BrokenBarrierException, TimeoutException {
 
-
-        final int CPU_CORES = Runtime.getRuntime().availableProcessors();
-
-        List<Thread> lowPriorityThreads = new ArrayList<>(CPU_CORES);
-        List<Thread> highPriorityThreads = new ArrayList<>(CPU_CORES);
-
-        CountDownLatch latch = new CountDownLatch( CPU_CORES );
+        CountDownLatch latch = new CountDownLatch( ThreadList.defaultSize() );
         AtomicInteger counter = new AtomicInteger(0);
 
+
         // Create Low Priority Threads
-        for(int i =0; i< CPU_CORES; i++)
-                lowPriorityThreads.add( new Thread( () -> {
+        new ThreadList( () -> {
 
-                        doSomeComplexTask();
-                        counter.incrementAndGet(); // Increment Counter When A Low Priority Thread Is Completed
+            doSomeComplexTask();
+            counter.incrementAndGet(); // Increment Counter When A Low Priority Thread Is Completed
 
-                }, "LowPriority"+i));
+        }, "LowPriority").start();
 
-        // Create High Priority Threads
-        for(int i =0; i< CPU_CORES; i++)
-                highPriorityThreads.add( new Thread(() -> {
+
+        // When: Create High Priority Threads With Priority = 10 ( Max )
+        new ThreadList( () -> {
 
                     try {  doSomeComplexTask(); }
                     finally { latch.countDown(); /* Signal High Priority Thread Completed*/ }
 
-                }, "HighPriority"+i ));
-
-        // When: Set Priority ( Between 0-MIN And 10-MAX )
-        highPriorityThreads.forEach( t -> t.setPriority( Thread.MAX_PRIORITY ));
-
-
-        // Start Threads
-        lowPriorityThreads.stream().forEach( Thread::start );
-        highPriorityThreads.stream().forEach( Thread::start );
+        }, "HighPriority" ).priority( Thread.MAX_PRIORITY).start();
 
 
         // Wait For All High Priority Threads To Complete
