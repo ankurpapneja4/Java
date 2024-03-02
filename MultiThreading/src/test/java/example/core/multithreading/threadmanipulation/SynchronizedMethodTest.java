@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static example.core.multithreading.threadmanipulation.ThreadUtils.sleep;
 
-public class SynchronizedMethodDemo {
+public class SynchronizedMethodTest {
 
     @Test
     void whenNotSynchronized_thenCounterIsInconsistent(){
