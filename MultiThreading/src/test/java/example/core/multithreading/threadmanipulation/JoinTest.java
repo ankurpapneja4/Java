@@ -1,11 +1,10 @@
 package example.core.multithreading.threadmanipulation;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static example.core.multithreading.threadmanipulation.ThreadUtils.sleep;
+import static example.core.multithreading.ThreadUtils.sleep;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class JoinTest {

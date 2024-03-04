@@ -1,9 +1,9 @@
 package example.core.multithreading.concepts;
 
-import example.core.multithreading.threadmanipulation.ThreadList;
+import example.core.multithreading.ThreadList;
 import org.junit.jupiter.api.Test;
 
-import static example.core.multithreading.threadmanipulation.ThreadUtils.sleep;
+import static example.core.multithreading.ThreadUtils.sleep;
 
 /**
  *

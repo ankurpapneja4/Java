@@ -1,13 +1,12 @@
-package example.core.multithreading.threadmanipulation;
+package example.core.multithreading.threadcommunication;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static example.core.multithreading.threadmanipulation.ThreadUtils.sleep;
+import static example.core.multithreading.ThreadUtils.sleep;
 
 public class WaitNotifiyTest {
 

@@ -1,6 +1,6 @@
 package example.core.multithreading.threadmanipulation;
 
-import static example.core.multithreading.threadmanipulation.ThreadUtils.sleep;
+import static example.core.multithreading.ThreadUtils.sleep;
 
 public class DaemonThreadDemo {
 

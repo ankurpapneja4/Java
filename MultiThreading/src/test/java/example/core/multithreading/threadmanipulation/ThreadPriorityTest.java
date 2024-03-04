@@ -1,5 +1,7 @@
 package example.core.multithreading.threadmanipulation;
 
+import example.core.multithreading.PowerCalculator;
+import example.core.multithreading.ThreadList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

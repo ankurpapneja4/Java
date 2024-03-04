@@ -1,4 +1,4 @@
-package example.core.multithreading.threadmanipulation;
+package example.core.multithreading;
 
 public class ThreadUtils {
 

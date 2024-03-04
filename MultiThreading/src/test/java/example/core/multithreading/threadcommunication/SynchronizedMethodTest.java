@@ -1,9 +1,10 @@
-package example.core.multithreading.threadmanipulation;
+package example.core.multithreading.threadcommunication;
 
+import example.core.multithreading.ThreadList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static example.core.multithreading.threadmanipulation.ThreadUtils.sleep;
+import static example.core.multithreading.ThreadUtils.sleep;
 
 public class SynchronizedMethodTest {
 
@@ -13,7 +14,7 @@ public class SynchronizedMethodTest {
         NonSynchronized obj = new NonSynchronized();
 
         // When : increment() is Not-Synchronized
-        int threadCount = new ThreadList( () -> { for(int i =0; i<100; i++) obj.increment(); })
+        int threadCount = new ThreadList( () -> { for(int i = 0; i<100; i++) obj.increment(); })
                                 .start()
                                 .join()
                                 .size();
