@@ -31,7 +31,7 @@ public class WaitNotifiyTest {
 
     }
 
-    public static class BlockingQueueImpl<T>{
+    private static class BlockingQueueImpl<T>{
 
         private final int capacity;
         private final List<T> queue;

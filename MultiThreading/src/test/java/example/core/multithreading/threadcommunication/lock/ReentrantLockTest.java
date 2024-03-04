@@ -1,4 +1,4 @@
-package example.core.multithreading.threadcommunication;
+package example.core.multithreading.threadcommunication.lock;
 
 import example.core.multithreading.ThreadList;
 import org.junit.jupiter.api.Test;
