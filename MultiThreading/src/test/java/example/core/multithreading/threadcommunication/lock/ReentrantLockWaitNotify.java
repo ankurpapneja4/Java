@@ -56,7 +56,7 @@ public class ReentrantLockWaitNotify {
 
                 while( queue.size() == capacity )
                     // Release Lock
-                    // And Wait Till Any Item Is Released, And Gets Signaled
+                    // And Wait Till Any Item Is Polled, And Gets Signaled
                     try { condition.await(); } catch (InterruptedException e) { e.printStackTrace(); }
 
                 queue.add(elem);
