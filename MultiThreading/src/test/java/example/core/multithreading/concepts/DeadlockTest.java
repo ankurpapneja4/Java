@@ -7,6 +7,13 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import static example.core.multithreading.ThreadUtils.sleep;
 
+/**
+ *  Deadlock:
+ *
+ *  Deadlock occurs when two or more threads wait forever for a lock
+ *  or resource, that is held by the other thread.
+ *
+ */
 public class DeadlockTest {
 
     @Test
@@ -25,7 +32,7 @@ public class DeadlockTest {
     }
 
 
-    public class CyclicDependency {
+    private class CyclicDependency {
 
         private final Lock lock1 = new ReentrantLock();
         private final Lock lock2 = new ReentrantLock();
