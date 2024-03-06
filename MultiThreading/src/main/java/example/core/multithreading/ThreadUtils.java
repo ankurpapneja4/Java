@@ -9,7 +9,8 @@ public class ThreadUtils {
 
     public static void log(String message){
 
-        System.out.println( String.format("[%s] : %s",
+        System.out.println( String.format("[ %d - %s ] : %s",
+                Thread.currentThread().getId(),
                 Thread.currentThread().getName(),
                 message ));
     }
