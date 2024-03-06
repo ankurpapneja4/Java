@@ -4,11 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
-import static example.core.multithreading.ThreadUtils.log;
-import static example.core.multithreading.ThreadUtils.sleep;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SingleThreadExecutorDemo {
@@ -18,6 +14,10 @@ public class SingleThreadExecutorDemo {
      *
      * SingleThreadPoolExecutor:
      * corePollSize = 1, maxPoolSize = 1, keepAliveTime = 0, queue = LinkedBlockingQueue
+     *
+     * new ThreadPoolExecutor(1, 1,
+     *                          0L, TimeUnit.MILLISECONDS,
+     *                            new LinkedBlockingQueue<Runnable>())
      *
      */
     @Test
