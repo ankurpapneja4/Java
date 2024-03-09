@@ -1,10 +1,7 @@
 package example.core.multithreading.collections;
 
-import example.core.multithreading.ThreadUtils;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.sql.Array;
 import java.util.concurrent.*;
 
 import static example.core.multithreading.ThreadUtils.log;
